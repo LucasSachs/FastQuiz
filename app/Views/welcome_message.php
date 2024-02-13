@@ -198,6 +198,8 @@
 <!-- HEADER: MENU + HEROE SECTION -->
 <header>
 
+<h1><?php echo base_url('node_modules/jquery/dist/jquery.min.js') ?></h1>
+
     <div class="menu">
         <ul>
             <li class="logo">
