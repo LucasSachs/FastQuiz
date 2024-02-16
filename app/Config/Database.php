@@ -27,11 +27,11 @@ class Database extends Config
     public array $default = [
         'DSN'          => '',
         'hostname'     => 'localhost',
-        'username'     => '',
-        'password'     => '',
-        'database'     => '',
-        'DBDriver'     => 'MySQLi',
-        'DBPrefix'     => '',
+        'username'     => 'postgres',
+        'password'     => 'root',
+        'database'     => 'fastquizdatabase',
+        'DBDriver'     => 'Postgre',
+        'DBPrefix'     => 'fastquizdatabase_',
         'pConnect'     => false,
         'DBDebug'      => true,
         'charset'      => 'utf8',
@@ -41,7 +41,7 @@ class Database extends Config
         'compress'     => false,
         'strictOn'     => false,
         'failover'     => [],
-        'port'         => 3306,
+        'port'         => 5432,
         'numberNative' => false,
     ];
 
