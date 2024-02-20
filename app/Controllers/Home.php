@@ -8,7 +8,7 @@ use Exception;
 
 class Home extends BaseController
 {
-    public function index(): string
+    public function index()
     {
         $categoria = new Categoria();
         $registros = $categoria->getDados();
@@ -23,6 +23,8 @@ class Home extends BaseController
             dd($e->getMessage());
         };
 
-        return view('app');
+        echo view('app');
+        echo view('content');
+        echo view('footer');
     }
 }
