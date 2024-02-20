@@ -11,20 +11,16 @@ class Home extends BaseController
     public function index(): string
     {
         $categoria = new Categoria();
-        $registro = $categoria->getDados();
+        $registros = $categoria->getDados();
 
-        print_r($registro);
-        die();
+        dd($registros);
 
         $client = service('curlrequest');
         try {
             $response = $client->request('POST', 'https://opentdb.com/api.php?amount=10');
             $response = json_decode($response->getBody());
-
-            print_r($response);
         } catch (Exception $e) {
-            var_dump($e->getMessage());
-            die();
+            dd($e->getMessage());
         };
 
         return view('app');

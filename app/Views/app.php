@@ -19,6 +19,10 @@
     <!-- SweetAlert2 -->
     <script src="<?php echo base_url('assets/sweetalert2/dist/sweetalert2.all.min.js') ?>"></script>
 
+    <!-- Select2 -->
+    <link rel="stylesheet" href="<?php echo base_url('assets/select2/dist/css/select2.min.css') ?>">
+    <script src="<?php echo base_url('assets/select2/dist/js/select2.full.min.js') ?>"></script>
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?php echo base_url('main/main.css') ?>">
 </head>
