@@ -2,29 +2,29 @@
 
 namespace App\Controllers;
 
-use App\Models\Categoria;
-
-use Exception;
-
 class Home extends BaseController
 {
     public function index()
     {
-        $categoria = new Categoria();
-        $registros = $categoria->getDados();
-
-        dd($registros);
-
         $client = service('curlrequest');
-        try {
-            $response = $client->request('POST', 'https://opentdb.com/api.php?amount=10');
-            $response = json_decode($response->getBody());
-        } catch (Exception $e) {
-            dd($e->getMessage());
-        };
+        $response = $client->request('POST', 'https://opentdb.com/api.php?amount=10');
+        $response = json_decode($response->getBody());
 
-        echo view('app');
-        echo view('content');
-        echo view('footer');
+        // Formatação das questões e descarte de informações que não serão utilizadas
+        foreach($response->results as $question) {
+            $answer = $question->incorrect_answers;
+            $answer[] = $question->correct_answer;
+            shuffle($answer); // Embaralhar a array de respostas
+
+            $questoes[] = [
+                'question' => $question->question,
+                'correct_answer' => $question->correct_answer,
+                'category' => $question->category,
+                'difficulty' => $question->difficulty,
+                'answer' => $answer
+            ];
+        }
+
+        return view('content', compact('questoes'));
     }
 }
