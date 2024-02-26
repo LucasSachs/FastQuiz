@@ -14,6 +14,10 @@
                         echo "<button class='btn btn-primary resposta'>$resposta</button>";
                 ?>
             </div>
+            <div class="text-center mt-4">
+                <span>Difficulty:</span>
+                <span class="badge <?php echo $questao['difficulty_color'] ?>"><?php echo $questao['difficulty'] ?></span>
+            </div>
         </div>
     <?php }; ?> <!-- End foreach --> 
 </div>
@@ -22,7 +26,7 @@
 
 <script>
     var currentQuestion = 1;
-    
+
     // Mostrar a primeira questão
     $(document).ready(function() {
         $('#question_1').removeAttr('hidden');
