@@ -2,4 +2,6 @@
 
 use CodeIgniter\Router\RouteCollection;
 
-$routes->get('/', 'Home::index');
+$routes->post('/', 'Home::index');
+$routes->get('/home', 'Home::home');
+$routes->get('/leaderboard', 'Home::leaderboard');

@@ -13,4 +13,13 @@ class Categoria extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [];
+
+    public function getCategorias() {
+        $query = $this->db->table('fastquizdatabase_categoria')
+                            ->select('*')
+                            ->orderby('desc_categoria', 'ASC')
+                            ->get();
+
+        return $query->getResult();
+    }
 }

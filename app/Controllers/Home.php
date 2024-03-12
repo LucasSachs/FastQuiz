@@ -2,12 +2,18 @@
 
 namespace App\Controllers;
 
+use App\Models\Categoria;
+
 class Home extends BaseController
 {
     public function index()
     {
+        $request = service('request');
+        $amount = $request->getPost('quantidade');
+        $category = $request->getPost('categoria');
+
         $client = service('curlrequest');
-        $response = $client->request('POST', 'https://opentdb.com/api.php?amount=10');
+        $response = $client->request('POST', "https://opentdb.com/api.php?amount=$amount&category=$category");
         $response = json_decode($response->getBody());
 
         // Formatação da array de questões e descarte de informações que não serão utilizadas
@@ -43,5 +49,15 @@ class Home extends BaseController
         }
 
         return view('content', compact('questoes'));
+    }
+
+    public function home() {
+        $categoria = new Categoria;
+        $categorias = $categoria->getCategorias();
+        return view('home', compact('categorias'));
+    }
+
+    public function leaderboard() {
+        return view('leaderboard');
     }
 }
