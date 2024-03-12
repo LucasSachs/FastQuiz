@@ -64,7 +64,11 @@
                 allowEscapeKey: false
             });
 
-            enviarDadosParaBackend();
+            setTimeout(function() {
+                window.location.href = "<?php echo base_url() ?>";
+            }, 3000);
+
+            //enviarDadosParaBackend();
 
             return $('#main').hide();
         }
@@ -91,6 +95,6 @@
             formData.append(inputAnswer);
         });
 
-        //formData.submit();
+        formData.submit();
     }
 </script>

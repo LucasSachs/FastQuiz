@@ -8,6 +8,24 @@ class Home extends BaseController
 {
     public function index()
     {
+        $rules = [
+            'quantidade' => 'required',
+            'categoria' => 'required'
+        ];
+
+        $messages = [
+            'quantidade' => [
+                'required' => 'O preenchimento deste campo é obrigatório, selecione uma das alternativas.',
+            ],
+            'categoria' => [
+                'required' => 'O preenchimento deste campo é obrigatório, selecione uma das alternativas.',
+            ]
+        ];
+
+        if(!$this->validate($rules, $messages)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
         $request = service('request');
         $amount = $request->getPost('quantidade');
         $category = $request->getPost('categoria');
