@@ -41,7 +41,7 @@
         </div>
 
         <div class="mt-5 text-center">
-            <button class="btn btn-primary">Gerar questões</button>
+            <button type="submit" class="btn btn-primary">Gerar questões</button>
         </div>
     </form>
 </div>

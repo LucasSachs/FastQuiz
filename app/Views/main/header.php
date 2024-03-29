@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,12 +25,14 @@
                     <li class="nav-item"><a class="nav-link me-lg-3" href="<?php echo base_url('leaderboard') ?>">Leaderboard</a></li>
                 </ul>
 
-                <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal">
-                    <span class="d-flex align-items-center">
-                        <i class="bi-chat-text-fill me-2"></i>
-                        <span class="small">Send Feedback</span>
-                    </span>
-                </button>
+                <a href="<?php echo base_url('feedback') ?>">
+                    <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0">
+                        <span class="d-flex align-items-center">
+                            <i class="bi-chat-text-fill me-2"></i>
+                            <span class="small">Enviar um Feedback</span>
+                        </span>
+                    </button>
+                </a>
             </div>
         </div>
     </nav>

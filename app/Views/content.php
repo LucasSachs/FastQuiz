@@ -65,7 +65,7 @@
             });
 
             setTimeout(function() {
-                window.location.href = "<?php echo base_url() ?>";
+                window.location.href = "<?php echo base_url('leaderboard') ?>";
             }, 3000);
 
             //enviarDadosParaBackend();
